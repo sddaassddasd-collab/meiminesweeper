@@ -44,13 +44,13 @@
   }
   #secret h2 { margin: 0 0 8px; font-size: 20px; }
   #secret hr { border: none; border-top: 1px dashed #deb887; margin: 12px 0; }
-  #secret a {
+  #secret a, .btn {
     display: block; margin: 16px auto; padding: 10px 16px;
     background: #22c55e; color: #0b1220; text-decoration: none;
     border-radius: 6px; font-weight: bold; text-align: center;
     width: fit-content;
   }
-  #secret a:hover { background:#16a34a; }
+  #secret a:hover, .btn:hover { background:#16a34a; }
   .hint{opacity:.8;margin-top:1rem;font-size:.9rem;text-align:center;color:#fff}
 </style>
 </head>
@@ -206,15 +206,49 @@ function showAllMines() {
 enterCodeBtn.addEventListener("click", () => {
   const code = prompt("다섯 자리 비밀번호를 입력하세요 / Please enter the 5-digit code:");
   if (code === null) return;
+
   const targetURL = "https://sddaassddasd-collab.github.io/meipanoramalaunch/";
+  let text = "";
 
-  const text = (code === "20197")
-    ? `배곧신도시의 역사와 발전 ... （略） ...`
-    : `비밀번호가 잘못 입력되었습니다 ...`;
+  if (code === "20197") {
+    text = `배곧신도시의 역사와 발전
 
+1985년부터 1996년까지 한국화약(후에 한화로 개명)은 시흥시 일대에서 매립 공사를 진행하였고, 1997년 1월에 완공되어 군용 화약 성능 시험장으로 사용되었다. 이로 인해 이 지역은 한화매립지 또는 군자매립지라 불렸다.
+
+그러나 시화신도시 건설이 본격화되면서 주민들의 지속적인 민원이 제기되었고, 시험장 허가도 취소되면서 해당 부지는 장기간 방치되었다.
+
+21세기에 들어서면서 개발 잠재력이 주목받자, 2006년 시흥시는 한화로부터 부지를 매입하고 개발계획을 수립하여 새로운 신도시의 청사진을 마련하였다. 초기에 ‘군자지구’ 또는 ‘군자신도시’로 불렸으나, 2011년 하반기부터 ‘군자배곧신도시’ 또는 줄여서 ‘배곧신도시’로 공식 명칭이 변경되었다. ‘배곧’은 순우리말로 ‘배움의 터전’을 의미하며, 시정부가 이 지역을 ‘교육도시’로 육성하려는 방향성과 맞닿아 있다. 전 구역이 매립지로 조성된 만큼 기존의 자연지명이 존재하지 않았기에 ‘배곧’이 공식 명칭으로 자리잡았다.
+
+2012년 10월 13일 배곧신도시는 명명식과 기공식을 거행하였고, 2015년 7월 시범단지의 첫 입주가 이루어졌다. 이어 2019년 7월까지 모든 주민이 입주를 완료하면서 도시 공동체가 완성되었다.
+
+주거 개발뿐만 아니라 배곧신도시는 광역 개발 계획에도 편입되었다. 이 지역은 경기도 경제자유구역으로 추가 지정되어 외국 기업 유치를 목표로 하였다. 이후 대우조선해양의 시험수조 연구센터가 입주하였고, 서울대 시흥캠퍼스 연구시설을 중심으로 교육·바이오·의료 연구 클러스터가 형성되었다.
+
+오늘날 배곧신도시는 군사시설에서 첨단 연구와 교육 중심지로 전환된 상징적 공간이며, 주거·연구·경제 발전을 아우르는 수도권의 신흥 도시로 자리매김하였다. 한때 냉전의 흔적을 지녔던 이 땅의 기억은 점차 사람들의 일상 속에서 잊혀지고 있다.
+
+
+The History and Development of Baegot New Town
+
+Between 1985 and 1996, Korea Explosives Company (later renamed Hanwha) carried out a large-scale land reclamation project in Siheung. Completed in January 1997, the reclaimed land was originally used as a military explosives testing site. Owing to this history, it became known as the “Hanwha Reclaimed Land” or the “Gunja Reclaimed Land.”
+
+However, as the construction of the Siwha New Town advanced, residents repeatedly raised complaints about the test site. With its operating license eventually revoked, the area was left idle for many years.
+
+In the early 2000s, the site once again attracted attention for its development potential. In 2006, Siheung City purchased the land from Hanwha and began formulating a development plan, gradually outlining the blueprint for a new town. Initially called the “Gunja District” or “Gunja New Town,” its official name was changed in late 2011 to “Gunja Baegot New Town,” or simply “Baegot New Town.” The word Baegot in pure Korean means “a place of learning,” reflecting the city’s vision of positioning the area as an “educational city.” As the entire district was reclaimed land without preexisting natural place names, Baegot became the official designation.
+
+On October 13, 2012, the naming and groundbreaking ceremony for Baegot New Town was held. In July 2015, the first demonstration complex welcomed its residents, and by July 2019, all households had moved in, completing the formation of the urban community.
+
+Beyond residential development, Baegot New Town was incorporated into broader regional planning. The reclaimed land was additionally designated as part of the Gyeonggi Free Economic Zone to attract foreign investment. Subsequently, Daewoo Shipbuilding & Marine Engineering established a test basin research center in the area, and with Seoul National University’s Siheung campus as its core, an education, bio, and medical research cluster began to take shape.
+
+Today, Baegot New Town stands as a symbol of transformation—from a former military testing ground to a hub of education and high-tech research. It has become a new urban center within the Seoul metropolitan area, integrating living, research, and economic growth, while the traces of its Cold War past gradually fade from public memory.`;
+  } else {
+    text = `비밀번호가 잘못 입력되었습니다. 아마도 아직 모든 역사를 다 탐구하지 못했을지 모릅니다. 그러나 우리는 애초에 전체의 전모를 볼 수 없습니다. 역사는 언제나 ‘망각’과 ‘망각에 저항하는 기억’ 사이에서 흔들리기 때문입니다. 바라건대 앞으로 “국가”나 “민족”이라는 말을 들을 때마다, 드러난 이야기만이 아니라 침묵된 것은 무엇인지도 함께 생각해 보기를 바랍니다.
+
+Password incorrect. Perhaps you have not yet reached the entirety of history, but in truth we can never see it in full—history always wavers between forgetting and the struggle against forgetting. May we, when we hear the words “nation” or “people” in the future, pause to reflect not only on what the stories tell, but also on what remains unsaid.`;
+  }
+
+  // 顯示文字
   secretBox.textContent = text;
 
-  // 建立「取代整頁開啟」按鈕
+  // 建立「取代整頁開啟」按鈕（同你的指定方式）
   const link = document.createElement("a");
   link.id = "fallbackLink";
   link.href = targetURL;
@@ -225,13 +259,13 @@ enterCodeBtn.addEventListener("click", () => {
   secretBox.appendChild(link);
   secretBox.classList.remove("hidden");
 
-  // 加入 JS 控制行為
+  // JS 方式主動取代最外層頁面；若被 sandbox 擋，退回 <a target="_top">
   function replaceTop(url) {
     try {
       window.top.location.replace(url);
     } catch (err) {
       console.warn("Top navigation blocked:", err);
-      alert("이 페이지는 상위 iframe의 sandbox로 인해 전체 페이지 이동이 제한되었습니다. A 사이트에서 allow-top-navigation-by-user-activation을 추가해주세요.");
+      alert("상위 iframe 의 sandbox 로 인해 전체 페이지 이동이 제한되었습니다. 상위(A)網站需加入 allow-top-navigation-by-user-activation。");
       document.getElementById("fallbackLink").click();
     }
   }
